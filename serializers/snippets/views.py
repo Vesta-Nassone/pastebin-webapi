@@ -1,4 +1,5 @@
 from django.http import HttpRequest, JsonResponse
+from django.http.response import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 
@@ -30,3 +31,12 @@ def snippet_detail(request, pk):
     """
     Retrieve, update or delete a code snippet.
     """
+    try:
+        snippet = Snippet.objects.get(pk=pk)
+    except Snippet.DoesNotExist:
+        return HttpResponse(status=404)
+    
+    if request.method == 'GET':
+        serializer = SnippetSerializer(snippet)
+        return JsonResponse(serializer.data)
+    
