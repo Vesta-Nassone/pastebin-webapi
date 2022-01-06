@@ -5,6 +5,7 @@ from rest_framework.parsers import JSONParser
 from .models import Snippet
 from .serializers import SnippetSerializer
 
+
 # Create your views here.
 @csrf_exempt
 def snippet_list(request):
@@ -22,7 +23,9 @@ def snippet_list(request):
             serializer.save()
             return JsonResponse(serializer.data, status=201)
         return JsonResponse(serializer.errors, status=400)
-    
+
+
+@csrf_exempt
 def snippet_detail(request, pk):
     """
     Retrieve, update or delete a code snippet.
