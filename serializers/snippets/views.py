@@ -39,4 +39,13 @@ def snippet_detail(request, pk):
     if request.method == 'GET':
         serializer = SnippetSerializer(snippet)
         return JsonResponse(serializer.data)
+    elif request.method == 'PUT':
+        data = JSONParser().parse(request)
+        serializer = SnippetSerializer(snippet, data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data)
+        JsonResponse(serializer.errors, status=400)
+        
+    
     
