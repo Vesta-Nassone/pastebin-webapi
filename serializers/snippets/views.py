@@ -24,4 +24,6 @@ def snippet_list(request):
         return JsonResponse(serializer.errors, status=400)
     
 def snippet_detail(request, pk):
-    
+    """
+    Retrieve, update or delete a code snippet.
+    """
