@@ -1,14 +1,18 @@
-from django.http import HttpRequest, JsonResponse
+import rest_framework
+from django.http import JsonResponse
 from django.http.response import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework import status
+from rest_framework.decorators import api_view
 from rest_framework.parsers import JSONParser
+from rest_framework.response import Response
 
 from .models import Snippet
 from .serializers import SnippetSerializer
 
-
 # Create your views here.
-@csrf_exempt
+
+@api_view(['GET', 'POST'])
 def snippet_list(request):
     """
     List all code snippets, or create a new snippet.
