@@ -35,7 +35,7 @@ def snippet_detail(request, pk):
         snippet = Snippet.objects.get(pk=pk)
     except Snippet.DoesNotExist:
         return HttpResponse(status=404)
-    
+
     if request.method == 'GET':
         serializer = SnippetSerializer(snippet)
         return JsonResponse(serializer.data)
@@ -46,6 +46,7 @@ def snippet_detail(request, pk):
             serializer.save()
             return JsonResponse(serializer.data)
         JsonResponse(serializer.errors, status=400)
-        
-    
-    
+
+    elif request.method == 'DELETE':
+        snippet.delete()
+        return HttpResponse(status=204)
