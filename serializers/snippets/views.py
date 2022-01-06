@@ -8,4 +8,6 @@ from .serializers import SnippetSerializer
 # Create your views here.
 @csrf_exempt
 def snippet_list(request):
-    
+    """
+    List all code snippets, or create a new snippet.
+    """
