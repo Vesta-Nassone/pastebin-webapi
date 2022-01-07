@@ -11,8 +11,6 @@ from .serializers import SnippetSerializer
 # Create your views here.
 
 
-@api_view(['GET', 'POST'])
-
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
