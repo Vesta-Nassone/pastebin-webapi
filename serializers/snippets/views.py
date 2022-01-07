@@ -10,4 +10,6 @@ from .serializers import SnippetSerializer
 
 # Create your views here.
 class SnippetList(APIView):
-    
+    """
+    List all snippets, or create a new snippet.
+    """
