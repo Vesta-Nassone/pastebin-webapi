@@ -9,3 +9,5 @@ from .models import Snippet
 from .serializers import SnippetSerializer
 
 # Create your views here.
+class SnippetList(APIView):
+    
