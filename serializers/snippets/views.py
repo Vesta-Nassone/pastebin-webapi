@@ -9,9 +9,3 @@ from .models import Snippet
 from .serializers import SnippetSerializer
 
 # Create your views here.
-
-
-
-
-@api_view(['GET', 'PUT', 'DELETE'])
-
