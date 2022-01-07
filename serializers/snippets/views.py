@@ -17,3 +17,6 @@ class SnippetList(APIView):
         snippets = Snippet.objects.all()
         serializer = SnippetSerializer(snippets, many=True)
         return Response(serializer.data)
+    
+    def post(self, request, format=None):
+        
