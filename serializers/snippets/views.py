@@ -26,7 +26,7 @@ class SnippetList(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class SnippetDetailView(APIView):
+class SnippetDetail(APIView):
     """
         Retrieve, update or delete a snippet instance.
     """
