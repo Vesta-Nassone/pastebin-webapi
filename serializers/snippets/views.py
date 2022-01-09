@@ -1,5 +1,3 @@
-from django.http import Http404, JsonResponse
-from django.http.response import HttpResponse
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -27,5 +25,8 @@ class SnippetList(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 class SnippetDetailView(APIView):
-    
+    """
+   Retrieve, update or delete a snippet instance.
+   """
