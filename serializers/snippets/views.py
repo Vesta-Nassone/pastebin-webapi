@@ -14,3 +14,6 @@ class SnippetList(mixins.ListModelMixin, mixins.CreateModelMixin, generics.Gener
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
