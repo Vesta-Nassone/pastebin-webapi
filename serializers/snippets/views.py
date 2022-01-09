@@ -1,5 +1,5 @@
+from django.http.response import Http404
 from rest_framework import status
-from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -28,5 +28,11 @@ class SnippetList(APIView):
 
 class SnippetDetailView(APIView):
     """
-   Retrieve, update or delete a snippet instance.
-   """
+        Retrieve, update or delete a snippet instance.
+    """
+
+    def get_object(self, pk):
+        try:
+            return Snippet.objects.get(pk=pk)
+        except Snippet.DoesNotExist:
+            raise Http404
