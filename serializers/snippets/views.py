@@ -17,3 +17,8 @@ class SnippetList(mixins.ListModelMixin, mixins.CreateModelMixin, generics.Gener
 
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
+
+
+class SnippetDetail(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.DestroyModelMixin, generics.GenericAPIView):
+    queryset = Snippet.objects.all()
+    serializer_class = SnippetSerializer
