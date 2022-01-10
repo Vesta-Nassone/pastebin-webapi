@@ -1,4 +1,5 @@
 from rest_framework import generics
+from serializers.snippets.serializers import UserSerializer
 
 from snippets.models import Snippet
 from snippets.serializers import SnippetSerializer
@@ -15,4 +16,5 @@ class SnippetDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = SnippetSerializer
 
 class UserList(generics.ListAPIView):
-    
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
