@@ -1,9 +1,9 @@
+from django.contrib.auth.models import User
 from rest_framework import generics
-from serializers.snippets.serializers import UserSerializer
 
+from serializers.snippets.serializers import UserSerializer
 from snippets.models import Snippet
 from snippets.serializers import SnippetSerializer
-from django.contrib.auth.models import User
 
 
 class SnippetList(generics.ListCreateAPIView):
@@ -15,6 +15,10 @@ class SnippetDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Snippet.objects.all()
     serializer_class = SnippetSerializer
 
+
 class UserList(generics.ListAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+class UserDetail(generics.RetrieveAPIView):
+    
