@@ -10,4 +10,5 @@ class SnippetSerializer(serializers.ModelSerializer):
        fields = ['id', 'title', 'code', 'linenos', 'language', 'style']
        
 class UserSerializer(serializers.ModelSerializer):
+    snippets = serializers.PrimaryKeyRelatedField(many=True, queryset=Snippet.objects.all())
     
