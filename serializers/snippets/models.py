@@ -1,5 +1,5 @@
 from django.db import models
-from pygments import formatter, highlight, lexer
+from pygments import highlight
 from pygments.formatters.html import HtmlFormatter
 from pygments.lexers import get_all_lexers, get_lexer_by_name
 from pygments.styles import get_all_styles
@@ -20,8 +20,8 @@ class Snippet(models.Model):
     style = models.CharField(choices=STYLE_CHOICES,
                              default='friendly', max_length=100)
     owner = models.ForeignKey(
-        'auth.User', related_name='snippets', on_delete=models.CASCADE)
-    highlighted = models.TextField()
+        'auth.User', related_name='snippets', on_delete=models.CASCADE, null=True)
+    highlighted = models.TextField(null=True)
 
     class Meta:
         ordering = ['created']
