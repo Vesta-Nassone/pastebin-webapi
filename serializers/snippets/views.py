@@ -41,3 +41,7 @@ def api_root(request, format=None):
         'user': reverse('user-list', request=request, format=format),
         'snippets': reverse('snippet-list', request, format=format)
     })
+
+
+class SnippetHighlight(generics.GenericAPIView):
+    
