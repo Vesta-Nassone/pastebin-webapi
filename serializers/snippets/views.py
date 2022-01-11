@@ -35,4 +35,6 @@ class UserDetail(generics.RetrieveAPIView):
     serializer_class = UserSerializer
     
     
-@api_view
+@api_view(['GET'])
+def api_root(request, format=None):
+    
