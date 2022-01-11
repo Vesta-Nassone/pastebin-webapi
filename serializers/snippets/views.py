@@ -35,3 +35,4 @@ class UserDetail(generics.RetrieveAPIView):
     serializer_class = UserSerializer
     
     
+@api_view
