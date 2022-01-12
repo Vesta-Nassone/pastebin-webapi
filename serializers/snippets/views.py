@@ -26,6 +26,9 @@ class SnippetDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 class UserViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    This viewset automatically provides `list` and `retrieve` actions.
+    """
     
 
 
