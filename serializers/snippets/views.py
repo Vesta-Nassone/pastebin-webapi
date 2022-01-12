@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import generics, permissions, renderers, viewsets
-from rest_framework.decorators import action, api_view
+from rest_framework.decorators import action, api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
@@ -16,6 +16,10 @@ class SnippetViewSet(viewsets.ModelViewSet):
 
     Additionally we also provide an extra `highlight` action.
     """
+    queryset = Snippet.objects.all()
+    serializer_class = SnippetSerializer
+    permission_classes = [
+        permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
 
 class UserViewSet(viewsets.ReadOnlyModelViewSet):
