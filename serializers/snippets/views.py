@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from rest_framework import generics, permissions, renderers
+from rest_framework import generics, permissions, renderers, viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
@@ -25,6 +25,8 @@ class SnippetDetail(generics.RetrieveUpdateDestroyAPIView):
         permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
 
+class UserViewSet(viewsets.ReadOnlyModelViewSet):
+    
 
 
 
