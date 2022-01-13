@@ -3,7 +3,7 @@ from rest_framework.urlpatterns import format_suffix_patterns
 
 from snippets import views
 from rest_framework import renderers
-from snippets.views import SnippetViewSet, UserViewSet
+from snippets.views import SnippetViewSet, UserViewSet, api_root
 
 # API endpoints
 urlpatterns = format_suffix_patterns([
