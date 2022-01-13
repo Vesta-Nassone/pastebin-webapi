@@ -1,26 +1,26 @@
 from django.urls import path
+from rest_framework import renderers
 from rest_framework.urlpatterns import format_suffix_patterns
 
 from snippets import views
-from rest_framework import renderers
 from snippets.views import SnippetViewSet, UserViewSet, api_root
 
 # API endpoints
 urlpatterns = format_suffix_patterns([
     path('', views.api_root),
     path('snippets/',
-        views.SnippetList.as_view(),
-        name='snippet-list'),
+         views.SnippetList.as_view(),
+         name='snippet-list'),
     path('snippets/<int:pk>/',
-        views.SnippetDetail.as_view(),
-        name='snippet-detail'),
+         views.SnippetDetail.as_view(),
+         name='snippet-detail'),
     path('snippets/<int:pk>/highlight/',
-        views.SnippetHighlight.as_view(),
-        name='snippet-highlight'),
+         views.SnippetHighlight.as_view(),
+         name='snippet-highlight'),
     path('users/',
-        views.UserList.as_view(),
-        name='user-list'),
+         views.UserList.as_view(),
+         name='user-list'),
     path('users/<int:pk>/',
-        views.UserDetail.as_view(),
-        name='user-detail')
+         views.UserDetail.as_view(),
+         name='user-detail')
 ])
