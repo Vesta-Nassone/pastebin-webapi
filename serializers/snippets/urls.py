@@ -20,6 +20,10 @@ snippet_detail = SnippetViewSet.as_view({
 snippet_highlight = SnippetViewSet.as_view({
     'get': 'highlight'
 }, renderer_classes=[renderers.StaticHTMLRenderer])
+
+user_list = UserViewSet.as_view({
+    'get': 'list'
+})
 # API endpoints
 urlpatterns = format_suffix_patterns([
     path('', views.api_root),
