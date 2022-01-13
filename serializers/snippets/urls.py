@@ -9,6 +9,13 @@ snippet_list = SnippetViewSet.as_view({
     'get': 'list',
     'post': 'create'
 })
+
+snippet_detail = SnippetViewSet.as_view({
+    'get': 'retrieve',
+    'put': 'update',
+    'patch': 'partial_update',
+    'delete': 'destroy'
+})
 # API endpoints
 urlpatterns = format_suffix_patterns([
     path('', views.api_root),
