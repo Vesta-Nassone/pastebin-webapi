@@ -5,6 +5,10 @@ from rest_framework.urlpatterns import format_suffix_patterns
 from snippets import views
 from snippets.views import SnippetViewSet, UserViewSet, api_root
 
+snippet_list = SnippetViewSet.as_view({
+    'get': 'list',
+    'post': 'create'
+})
 # API endpoints
 urlpatterns = format_suffix_patterns([
     path('', views.api_root),
