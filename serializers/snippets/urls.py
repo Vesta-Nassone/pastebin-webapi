@@ -16,6 +16,10 @@ snippet_detail = SnippetViewSet.as_view({
     'patch': 'partial_update',
     'delete': 'destroy'
 })
+
+snippet_highlight = SnippetViewSet.as_view({
+    'get': 'highlight'
+}, renderer_classes=[renderers.StaticHTMLRenderer])
 # API endpoints
 urlpatterns = format_suffix_patterns([
     path('', views.api_root),
