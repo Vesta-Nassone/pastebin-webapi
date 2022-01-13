@@ -24,6 +24,11 @@ snippet_highlight = SnippetViewSet.as_view({
 user_list = UserViewSet.as_view({
     'get': 'list'
 })
+
+user_detail = UserViewSet.as_view({
+    'get': 'retrieve'
+})
+
 # API endpoints
 urlpatterns = format_suffix_patterns([
     path('', views.api_root),
